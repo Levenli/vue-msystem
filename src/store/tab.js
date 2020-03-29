@@ -17,7 +17,7 @@ export default {
     setMenu(state, val) {
       state.menu = val
       Cookie.set('menu', JSON.stringify(val))
-      console.log(val, 'vuex')
+      // console.log(val, 'vuex')
     },
     clearMenu(state) {
       state.menu = []
