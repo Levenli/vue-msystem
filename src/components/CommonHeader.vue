@@ -37,7 +37,7 @@ export default {
   },
   data() {
     return {
-      userAvatar: require('../assets/images/user.png')
+      userAvatar: require('../assets/images/user.jpg')
     }
   },
   methods: {
