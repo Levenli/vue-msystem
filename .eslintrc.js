@@ -14,7 +14,8 @@ module.exports = {
         singleQuote: true,
         printWidth: 150
       }
-    ]
+    ],
+    "no-unused-vars": 'off'
   },
   parserOptions: {
     parser: 'babel-eslint'

@@ -2,7 +2,7 @@
   <div class="header-box">
     <!-- 左边 -->
     <div class="l-content">
-      <el-button icon="el-icon-menu" @click="collapseMenu"></el-button>
+      <el-button size="mini" icon="el-icon-menu" @click="collapseMenu"></el-button>
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <!-- <el-breadcrumb-item @click="selectHome">首页</el-breadcrumb-item> -->
@@ -85,9 +85,12 @@ export default {
   color: #fff;
   cursor: pointer;
 }
+.el-breadcrumb__item:hover {
+  cursor: pointer;
+}
 .el-breadcrumb__inner.is-link {
   color: #fff;
-  cursor: pointer;
+  cursor: pointer !important;
 }
 .el-breadcrumb__item:last-child .el-breadcrumb__inner {
   color: #fff;

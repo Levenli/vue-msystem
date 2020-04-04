@@ -12,21 +12,22 @@
       SunShine后台管理系统
       <p class="light"></p>
     </h3>
+    <!-- 左侧菜单(无子菜单) -->
     <el-menu-item v-for="item in noChildren" @click="clickMenu(item)" :key="item.path" :index="item.path">
       <i :class="'el-icon-' + item.icon"></i>
       <span slot="title">{{ item.label }}</span>
     </el-menu-item>
+    <!-- 左侧菜单(有子菜单) -->
     <el-submenu v-for="(item, index) in hasChildren" :key="index" :index="item.label">
       <template slot="title">
         <i :class="'el-icon-' + item.icon"></i>
         <span>{{ item.label }}</span>
       </template>
       <el-menu-item-group>
-        <!-- <template slot="title">分组一</template> -->
-        <el-menu-item v-for="(subItem, subIndex) in item.children" @click="clickMenu(subItem)" :key="subIndex" :index="subIndex.path">
-          <!-- {{ subItem.label }} -->
-          <i :class="'el-icon-' + subItem.icon"></i>
-          <span>{{ subItem.label }}</span>
+        <el-menu-item v-for="(subItem, subIndex) in item.children" @click="clickMenu(subItem)" :key="subIndex" :index="subItem.path">
+          {{ subItem.label }}
+          <!-- <i :class="'el-icon-' + subItem.icon"></i> -->
+          <!-- <span>{{ subItem.label }}</span> -->
         </el-menu-item>
       </el-menu-item-group>
     </el-submenu>
@@ -61,16 +62,16 @@ export default {
           icon: 's-home'
         },
         {
-          path: '/video',
-          name: 'video',
-          label: '视频管理',
-          icon: 'video-play'
-        },
-        {
           path: '/user',
           name: 'user',
           label: '用户管理',
           icon: 'user'
+        },
+        {
+          path: '/video',
+          name: 'video',
+          label: '视频管理',
+          icon: 'video-play'
         },
         {
           label: '其他',
@@ -116,8 +117,10 @@ export default {
   .system-tit {
     position: relative;
     overflow: hidden;
+    user-select: none;
+    -ms-user-select: none;
+    cursor: default;
     .light {
-      cursor: pointer;
       position: absolute;
       left: -145px;
       top: 0;
@@ -147,6 +150,11 @@ export default {
 <style lang="scss">
 .el-menu-item,
 .el-submenu__title {
-  font-size: 17px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.el-menu-item-group__title {
+  display: none;
 }
 </style>

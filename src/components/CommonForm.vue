@@ -7,7 +7,15 @@
           <el-option v-for="subItem in item.opts" :key="subItem.value" :label="subItem.label" :value="subItem.value"></el-option>
         </el-select>
         <el-switch v-model="form[item.model]" v-if="item.type === 'switch'"></el-switch>
-        <el-date-picker v-model="form[item.model]" type="date" v-if="item.type === 'date'" placeholder="选择日期"> </el-date-picker>
+        <el-date-picker
+          format="yyyy 年 MM 月 dd 日"
+          value-format="yyyy-MM-dd"
+          v-model="form[item.model]"
+          type="date"
+          v-if="item.type === 'date'"
+          placeholder="选择日期"
+        >
+        </el-date-picker>
       </el-form-item>
       <!-- <el-form-item>
         <el-button type="primary" @click="onSubmit">查询</el-button>

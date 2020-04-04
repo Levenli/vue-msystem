@@ -42,6 +42,7 @@ export default {
       isDialogVisible: false,
       operateType: 'add',
       operateForm: {
+        id: '',
         name: '',
         age: '',
         addr: '',
@@ -135,7 +136,7 @@ export default {
           }
         })
         .then(res => {
-          console.log(res.data.list)
+          // console.log(res.data.list)
           this.tableData = res.data.list.map(item => {
             item.sexLabel = item.sex === 0 ? '女' : '男'
             return item
@@ -147,23 +148,39 @@ export default {
     childChangePage(val) {
       // 这里没有用到此函数，仅供参考
       // 分页按钮操作(从子组件传过来的)
-      console.log(val)
+      // console.log(val)
     },
     addUserRow(row) {
       // 新增-按钮
-      console.log(row, 'addUserRow')
+      // console.log(row, 'addUserRow')
       this.operateType = 'add'
+      this.operateForm = {
+        id: '',
+        name: '',
+        age: '',
+        addr: '',
+        birth: '',
+        sex: ''
+      }
       this.isDialogVisible = true
     },
     editUserRow(row) {
       // 编辑-按钮
-      console.log(row, 'editUserRow')
+      // console.log(row, 'editUserRow')
       this.operateType = 'edit'
+      this.operateForm = {
+        id: row.id,
+        name: row.name,
+        age: row.age,
+        addr: row.addr,
+        birth: row.birth,
+        sex: row.sex
+      }
       this.isDialogVisible = true
     },
     deleteUserRow(row) {
       // 删除-按钮
-      console.log(row)
+      // console.log(row)
       this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -172,7 +189,7 @@ export default {
         .then(() => {
           let id = row.id
           this.$http.get('/api/user/del', { params: { id } }).then(res => {
-            console.log(res)
+            // console.log(res)
             this.$message({
               type: 'success',
               message: '删除成功!'
@@ -192,7 +209,7 @@ export default {
       if (this.operateType === 'edit') {
         // 编辑(更新)用户
         this.$http.post('/api/user/edit', this.operateForm).then(res => {
-          console.log(res.data, 'dialogConfirm-edit')
+          // console.log(res.data, 'dialogConfirm-edit')
           this.isDialogVisible = false
           this.getList()
         })
@@ -202,7 +219,7 @@ export default {
         for (let i in formData) {
           if (formData[i] !== '') {
             this.$http.post('/api/user/add', this.operateForm).then(res => {
-              console.log(res.data, 'dialogConfirm-add')
+              // console.log(res.data, 'dialogConfirm-add')
               this.isDialogVisible = false
               this.getList()
               this.$message({
