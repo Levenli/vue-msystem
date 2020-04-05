@@ -64,4 +64,7 @@ export default {
   align-items: center;
   height: 50px;
 }
+// /deep/.el-table__body-wrapper {
+//   min-height: 360px;
+// }
 </style>

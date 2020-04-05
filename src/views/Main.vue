@@ -8,7 +8,7 @@
         <common-header></common-header>
       </el-header>
       <common-tabs style="margin:10px;"></common-tabs>
-      <el-main>
+      <el-main style="height:100%;">
         <router-view />
       </el-main>
     </el-container>

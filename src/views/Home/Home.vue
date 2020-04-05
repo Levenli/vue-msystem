@@ -1,6 +1,5 @@
 <template>
   <el-row class="home" :gutter="20">
-    <!-- 左边 -->
     <el-col :span="8">
       <el-card shadow="hover" style="height: 290px;">
         <div class="user">
@@ -25,7 +24,6 @@
         </el-table>
       </el-card>
     </el-col>
-    <!-- 右边 -->
     <el-col :span="16">
       <div class="num">
         <el-card shadow="hover" v-for="item in countData" :key="item.name">
@@ -135,7 +133,7 @@ export default {
   methods: {
     getData() {
       this.$http.get('/home/getData').then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         res = res.data
         // 1.表格数据
         this.tableData = res.data.tableData
