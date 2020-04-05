@@ -128,11 +128,11 @@ export default {
     },
     initChartData() {
       if (this.isAxisChart) {
-        console.log('坐标轴图表')
+        // console.log('坐标轴图表')
         this.axisOption.xAxis.data = this.chartData.xData
         this.axisOption.series = this.chartData.series
       } else {
-        console.log('非坐标轴图表')
+        // console.log('非坐标轴图表')
         this.normalOption.series = this.chartData.series
       }
     },

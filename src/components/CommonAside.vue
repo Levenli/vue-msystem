@@ -100,7 +100,7 @@ export default {
       if (this.$route.name === item.name) return
       // 路由跳转
       this.$router.push({ name: item.name }).catch(err => {
-        console.log('重复点击路由:', err)
+        // console.log('重复点击路由:', err)
       })
       this.$store.commit('selectMenu', item)
     }
