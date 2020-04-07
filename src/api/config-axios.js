@@ -10,12 +10,12 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
-    console.log('setAxios-request..')
+    // console.log('setAxios-request..')
     return config
   },
   err => {
     // 对请求错误做些什么
-    console.log(err)
+    // console.log(err)
   }
 )
 
@@ -23,7 +23,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     // 对响应数据做点什么
-    console.log('setAxios-response..')
+    // console.log('setAxios-response..')
     let res = response
     // let res = {}
     // res.status = response.status
@@ -32,7 +32,7 @@ service.interceptors.response.use(
   },
   err => {
     // 对响应错误做点什么
-    console.log(err)
+    // console.log(err)
   }
 )
 

@@ -84,7 +84,8 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: url('../../assets/images/bg.jpg');
+  background: url('../../assets/images/bg.jpg') no-repeat;
+  background-size: 100% 100%;
 }
 .el-form {
   width: 35%;
