@@ -19,9 +19,6 @@ module.exports = {
       }
     }
   },
-  // configureWebpack: {
-  //   plugins:[]
-  // },
   configureWebpack: (config) => {
     if (process.env.NODE_ENV === 'production') {
       return {
