@@ -42,7 +42,7 @@ export default {
       isDialogVisible: false,
       operateType: 'add',
       operateForm: {
-        id: '',
+        // id: '',
         name: '',
         age: '',
         addr: '',
@@ -155,7 +155,7 @@ export default {
       // console.log(row, 'addUserRow')
       this.operateType = 'add'
       this.operateForm = {
-        id: '',
+        // id: '',
         name: '',
         age: '',
         addr: '',
@@ -216,6 +216,7 @@ export default {
       } else if (this.operateType === 'add') {
         // 新增用户
         let formData = this.operateForm
+        console.log(formData)
         for (let i in formData) {
           if (formData[i] !== '') {
             this.$http.post('/api/user/add', this.operateForm).then(res => {
