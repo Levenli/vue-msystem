@@ -18,8 +18,8 @@
 export default {
   data() {
     return {
-      loginType: false,
-      loginInfo: '登录',
+      loginType: false, // 判断是否正在登陆，防止多次点击登录按钮
+      loginInfo: '登录', // 登陆按钮描述
       form: {
         username: 'admin',
         password: '123456'
@@ -42,12 +42,10 @@ export default {
         that.loginInfo = '登陆中...'
       }, 500)
       setTimeout(function() {
-        that.loginInfo = '登陆成功'
-      }, 1500)
-      setTimeout(function() {
         that.$http.post('api/permission/getMenu', that.form).then(res => {
           res = res.data
           if (res.code === 20000) {
+            that.loginInfo = '登陆成功'
             // 先清空，防止二次登陆
             that.$store.commit('clearMenu')
             that.$store.commit('setMenu', res.data.menu)
@@ -56,6 +54,8 @@ export default {
             that.$router.push({ name: 'home' })
           } else {
             that.$message.warning(res.data.message)
+            that.loginType = false
+            that.loginInfo = '登陆'
           }
         })
       }, 2000)

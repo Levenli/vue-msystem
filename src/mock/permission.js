@@ -85,7 +85,7 @@ export default {
         return {
           code: -999,
           data: {
-            message: '密码错误'
+            message: '密码错误,请重试！'
           }
         }
       }
@@ -93,7 +93,7 @@ export default {
       return {
         code: -999,
         data: {
-          message: '用户不存在'
+          message: '用户不存在,请重试！'
         }
       }
     }
