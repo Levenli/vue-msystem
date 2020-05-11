@@ -4,11 +4,8 @@
     <div class="l-content">
       <el-button size="mini" icon="el-icon-menu" @click="collapseMenu"></el-button>
       <el-breadcrumb separator-class="el-icon-arrow-right">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <!-- <el-breadcrumb-item @click="selectHome">首页</el-breadcrumb-item> -->
-        <el-breadcrumb-item :to="current.path" v-if="current">{{ current.label }}</el-breadcrumb-item>
-        <!-- <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-        <el-breadcrumb-item>活动详情</el-breadcrumb-item> -->
+        <!-- <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="current.path" v-if="current">{{ current.label }}</el-breadcrumb-item> -->
       </el-breadcrumb>
     </div>
     <!-- 右边 -->
@@ -18,9 +15,6 @@
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item icon="el-icon-plus">个人中心</el-dropdown-item>
           <el-dropdown-item icon="el-icon-circle-plus" @click.native="logOut">退出</el-dropdown-item>
-          <!-- <el-dropdown-item icon="el-icon-circle-plus-outline">螺蛳粉</el-dropdown-item>
-          <el-dropdown-item icon="el-icon-check">双皮奶</el-dropdown-item>
-          <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item> -->
         </el-dropdown-menu>
       </el-dropdown>
     </div>

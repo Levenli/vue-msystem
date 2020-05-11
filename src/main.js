@@ -18,9 +18,6 @@ Vue.config.productionTip = false
 
 // 路由守卫
 router.beforeEach((to, from, next) => {
-  // console.log(to, 'to')
-  // console.log(from, 'from')
-  // if (to.name === from.name) return
   // 防止刷新后vuex里丢失token
   store.commit('getToken')
   // 防止刷新后vuex里丢失标签列表tagList

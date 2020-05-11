@@ -17,11 +17,11 @@ export default {
     setMenu(state, val) {
       state.menu = val
       Cookie.set('menu', JSON.stringify(val))
-      // console.log(val, 'vuex')
     },
     clearMenu(state) {
       state.menu = []
       Cookie.remove('menu')
+      Cookie.remove('tagList')
     },
     addMenu(state, router) {
       if (!Cookie.get('menu')) {
@@ -52,7 +52,7 @@ export default {
     },
     selectMenu(state, val) {
       if (val.name !== 'home') {
-        // 先判断数组中有没有，没有才添加进去
+        // 先判断tagsList数组中有没有，没有才添加进去
         let result = state.tagsList.findIndex(item => item.name === val.name)
         result === -1 ? state.tagsList.push(val) : ''
         state.currentMenu = val

@@ -39,7 +39,7 @@ export default {
     },
     selectTag(tag) {
       this.$store.commit('selectMenu', tag)
-      this.$router.push({ name: tag.name })
+      this.$router.push({ name: tag.name }).catch(err => err)
     }
   }
 }

@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import Cookie from 'js-cookie'
 export default {
   data() {
     return {
