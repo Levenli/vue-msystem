@@ -19,21 +19,21 @@ module.exports = {
       }
     }
   },
-  configureWebpack: config => {
-    if (process.env.NODE_ENV === 'production') {
-      return {
-        plugins: [
-          new CompressionPlugin({
-            filename: '[path].gz[query]',
-            algorithm: 'gzip',
-            test: /\.css$|\.ttf$|\.svg$|\.json$|\.js$/, // 匹配文件名
-            threshold: 0, // 对超过0kb的数据压缩
-            deleteOriginalAssets: true // 是否删除源文件? true是||false否
-          })
-        ]
-      }
-    }
-  },
+  // configureWebpack: config => {
+  //   if (process.env.NODE_ENV === 'production') {
+  //     return {
+  //       plugins: [
+  //         new CompressionPlugin({
+  //           filename: '[path].gz[query]',
+  //           algorithm: 'gzip',
+  //           test: /\.css$|\.ttf$|\.svg$|\.json$|\.js$/, // 匹配文件名
+  //           threshold: 0, // 对超过0kb的数据压缩
+  //           deleteOriginalAssets: true // 是否删除源文件? true是||false否
+  //         })
+  //       ]
+  //     }
+  //   }
+  // },
   chainWebpack: config => {
     config.module
       .rule('image')
