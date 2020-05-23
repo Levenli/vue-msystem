@@ -216,7 +216,7 @@ export default {
       } else if (this.operateType === 'add') {
         // 新增用户
         let formData = this.operateForm
-        console.log(formData)
+        // console.log(formData)
         for (let i in formData) {
           if (formData[i] !== '') {
             this.$http.post('/api/user/add', this.operateForm).then(res => {
