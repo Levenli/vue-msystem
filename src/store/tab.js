@@ -54,6 +54,7 @@ export default {
       if (val.name !== 'home') {
         // 先判断tagsList数组中有没有，没有才添加进去
         let result = state.tagsList.findIndex(item => item.name === val.name)
+        console.log(val, 'result11')
         result === -1 ? state.tagsList.push(val) : ''
         state.currentMenu = val
         Cookie.set('tagList', JSON.stringify(state.tagsList))
@@ -71,8 +72,14 @@ export default {
     closeTags(state, val) {
       // findIndex()方法返回第一个匹配的'元素索引'
       let result = state.tagsList.findIndex(item => item.name === val.name)
-      state.tagsList.splice(result, 1)
-      Cookie.set('tagList', JSON.stringify(state.tagsList))
+      // 点击关闭标签时会执行两次(??)，须加个if判断
+      if (result !== -1) {
+        state.tagsList.splice(result, 1)
+        console.log(state.tagsList, 'state.tagsList')
+        Cookie.set('tagList', JSON.stringify(state.tagsList))
+        return
+      }
+      // console.log(state.tagsList, '111')
     },
     menuCollapse(state) {
       state.isCollapse = !state.isCollapse

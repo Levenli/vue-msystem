@@ -4,8 +4,8 @@
     <div class="l-content">
       <el-button size="mini" icon="el-icon-menu" @click="collapseMenu"></el-button>
       <el-breadcrumb separator-class="el-icon-arrow-right">
-        <!-- <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item :to="current.path" v-if="current">{{ current.label }}</el-breadcrumb-item> -->
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="current.path" v-if="current">{{ current.label }}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <!-- 右边 -->

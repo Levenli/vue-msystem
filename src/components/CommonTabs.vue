@@ -34,8 +34,19 @@ export default {
       closeTag: 'closeTags'
     }),
     handleClose(tag) {
+      // console.log(tag, 'nowTag')
+      let preIndex = this.nowTags.findIndex(item => item.name === tag.name)
       this.closeTag(tag)
-      // this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
+      this.$store.commit('closeTags', tag)
+
+      console.log(preIndex, 'preIndex')
+
+      // 当关闭的tag是当前已选中的tag时
+      if (this.$route.name === tag.name) {
+        let lastTag = this.nowTags[preIndex - 1]
+        this.$store.commit('selectMenu', lastTag)
+        this.$router.push({ name: lastTag.name }).catch(err => err)
+      }
     },
     selectTag(tag) {
       this.$store.commit('selectMenu', tag)
